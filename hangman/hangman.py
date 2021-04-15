@@ -21,11 +21,12 @@ Attemps = 8
 
 ThatWord = (random.choice(words))
 
+ThatWordChar = list(ThatWord)
+dashes = " _ "*len(ThatWord)
 
 while True:
 
-    ThatWordChar = list(ThatWord)
-    dashes = " _ "*len(ThatWord)
+   
     
     print('Guess this!\n' + dashes + "\n")
     print("You got " + str(Attemps) + " attemps!")
@@ -34,8 +35,9 @@ while True:
 
     if PlayersGuess in ThatWordChar:
         print("correct!")
+        ThatWord.replace("_", PlayersGuess)
     else:
-        print("too bad, man!")
+        print("too bad, man!\n")
         Attemps -= 1
 
     
@@ -45,5 +47,6 @@ while True:
 
 
     if Attemps <= 0:
+        time.sleep(3)
         print("Game Over!\n You suck!")
         break
